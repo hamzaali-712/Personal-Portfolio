@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%" style="background: transparent; font-family: 'Segoe UI', system-ui, sans-serif;">
+  <defs>
+    <!-- Dark & Red Vibrant Glowing Gradients -->
+    <linearGradient id="neuralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EF233C" />
+      <stop offset="50%" stop-color="#D90429" />
+      <stop offset="100%" stop-color="#8D99AE" />
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EF233C" />
+      <stop offset="100%" stop-color="#D90429" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    /* CSS Animations for Neural Network & Data Flow */
+    @keyframes pulseNode {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.2); opacity: 1; filter: drop-shadow(0 0 8px #EF233C); }
+    }
+    @keyframes flowData {
+      to { stroke-dashoffset: -40; }
+    }
+    @keyframes rotateNetwork {
+      0% { transform: translate(150px, 150px) rotate(0deg); }
+      100% { transform: translate(150px, 150px) rotate(360deg); }
+    }
+    @keyframes drawBrain {
+      0% { stroke-dashoffset: 600; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    .brain-grid {
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      animation: drawBrain 4s ease-out forwards;
+    }
+    .data-flow {
+      stroke-dasharray: 10 30;
+      animation: flowData 2s linear infinite;
+    }
+    .orbit-ring {
+      animation: rotateNetwork 25s linear infinite;
+      transform-origin: 0px 0px;
+    }
+    .neural-node {
+      animation: pulseNode 3s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- CENTERED LOGO EMBLEM -->
+  <g transform="translate(0, 0)">
+    <!-- Base Indigo Background Circle -->
+    <circle cx="150" cy="150" r="85" fill="#2B2D42" opacity="0.95" stroke="#8D99AE" stroke-width="1.5" />
+
+    <!-- Outer Data Orbit Ring with Python/ML Syntax Nodes -->
+    <g class="orbit-ring">
+      <circle cx="0" cy="0" r="100" fill="none" stroke="url(#redGrad)" stroke-dasharray="160 30 80 40" stroke-width="2" opacity="0.85" filter="url(#neonGlow)"/>
+      <circle cx="0" cy="0" r="108" fill="none" stroke="#8D99AE" stroke-dasharray="12 45 6 20" stroke-width="1" opacity="0.5" />
+      
+      <!-- Mini Code Indicators on Orbit -->
+      <path d="M 0 -108 L 4 -108 L 2 -103 Z" fill="#EF233C" />
+      <text x="-108" y="0" fill="#8D99AE" font-size="8" font-weight="bold">[]</text>
+      <text x="102" y="0" fill="#EF233C" font-size="8" font-weight="bold">{}</text>
+    </g>
+
+    <!-- Inner Neural Network Mesh -->
+    <g filter="url(#neonGlow)">
+      <path class="brain-grid" d="M100,150 L125,120 L175,120 L200,150 L175,180 L125,180 Z M125,120 L150,150 L175,120 M125,180 L150,150 L175,180 M100,150 L150,150 L200,150" fill="none" stroke="#8D99AE" stroke-width="1.2" opacity="0.6"/>
+      
+      <!-- Synapse Nodes -->
+      <circle cx="100" cy="150" r="5" fill="#EF233C" class="neural-node" />
+      <circle cx="125" cy="120" r="4" fill="#EDF2F4" />
+      <circle cx="175" cy="120" r="4" fill="#EDF2F4" />
+      <circle cx="200" cy="150" r="5" fill="#EF233C" class="neural-node" />
+      <circle cx="175" cy="180" r="4" fill="#EDF2F4" />
+      <circle cx="125" cy="180" r="4" fill="#EDF2F4" />
+      <circle cx="150" cy="150" r="7" fill="url(#redGrad)" />
+    </g>
+
+    <!-- Neural Flow Outer Trail -->
+    <circle cx="150" cy="150" r="78" fill="none" stroke="url(#redGrad)" stroke-width="2" class="data-flow" opacity="0.7"/>
+
+    <!-- Interlocked "HA" Monogram Icon -->
+    <g filter="url(#neonGlow)" transform="translate(108, 125)">
+      <!-- H in Platinum -->
+      <path d="M10,5 L10,45 M10,25 L35,25 M35,5 L35,45" fill="none" stroke="#EDF2F4" stroke-width="11" stroke-linecap="round" />
+      <!-- A in Neural Red Gradient -->
+      <path d="M38,45 L50,8 A 2,2 0 0, 1 54,8 L66,45 M43,30 L61,30" fill="none" stroke="url(#neuralGrad)" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round"/>
+      
+      <!-- Connection Points -->
+      <circle cx="10" cy="5" r="3" fill="#EF233C" />
+      <circle cx="35" cy="45" r="3" fill="#8D99AE" />
+      <circle cx="50" cy="8" r="3" fill="#EDF2F4" />
+    </g>
+  </g>
+</svg>
